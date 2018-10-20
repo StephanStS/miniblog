@@ -1,0 +1,49 @@
+Miniblog Update Instructions
+============================
+
+The package contains code for the standard 
+filebrowser plugin. Therefore install the unzipped 
+package into the base folder of your site. This will
+install the additional code in the filebrowser and 
+overwrite your old Miniblog version.
+
+Log in to CMSimple_XH and go to Plugins > Miniblog.
+Miniblog will create an new config file keeping your old
+setting.
+
+From Miniblog version 0.4 there may remain 2 files:
+css/0.4_default.css
+css/0-4_default.css
+
+They are not used and should be deleted.
+
+CHANGE from v. 0.4 to 0.5: The pagename for backlinks
+has gone from the config file to the language file. You
+will have to enter that again.
+
+********************************************************
+
+
+Miniblog Update-Beschreibung
+============================
+
+Das Paket enthält Code für das Filebrowser-Plugin. Daher 
+das Paket so wie es entpackt ist, in das Basisverzeichnis
+der Website kopieren. Dadurch wird die Filebrowserergänzung
+installiert und die alte Miniblogversion überschrieben.
+
+In CMSimple einloggen und zu Plugins > Miniblog gehen.
+Miniblog sucht nun nach der Config-Datei. Wenn es eine
+alte Version findet, ließt es deren Einstellungen.
+Danach generiert es eine neue Config-Datei unter 
+Berücksichtigung der alten Einstellungen. 
+
+Aus Version 0.4 finden sich eventuell noch 2 alte Dateien:
+css/0.4_default.css
+css/0-4_default.css
+
+Diese werden nicht mehr genutzt und sollten gelöscht werden.
+
+Änderung Version 0.4 zu 0.5: Der Eintrag für die Backlinks
+ist aus der Konfig-Datei in die Sprach-Datei gelegt worden
+und muss neu eingegeben werden.

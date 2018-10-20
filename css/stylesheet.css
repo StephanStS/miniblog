@@ -1,0 +1,258 @@
+.mblog_selectors {
+    margin:0 0 2em;
+    /* border-bottom: 2px solid #ccc; */
+}
+.mblog_item {
+    margin:1em 0 2em;
+    overflow: hidden;
+    width:100%;
+}
+.mblog_columns {
+    width: 47%;
+    width: calc(50% - 20px);
+    margin-right:16px;
+    vertical-align: top;
+    box-sizing: border-box;
+    display:inline-block;
+}
+@media screen and (max-width:500px) {
+    .mblog_columns {
+        width:100%;
+    }
+}
+.mblog_postHeader {
+    margin:0 0 2em;
+}
+.mblog_item p,
+.mblog_postHeader p,
+#mblog_posting .mblog_postHeader p {
+    margin:0;
+}
+
+/* memberpostings admin */
+.mblog_list {
+    margin:0 0 1em;
+    border:1px solid grey;
+    padding:.2em;
+    width:100%;
+    max-height:15em;
+    overflow:auto;
+}
+.mblog_list span {
+    font-size:small;
+}
+.mblog_list p {
+    text-indent: -1em;
+    margin:0;
+    padding-left:1em;
+}
+.mblog_list p.mblog_selectedPost {
+    background: #def;
+    color:black;
+}
+.mblog_folder {
+    margin:0 auto 1em;
+    padding:.2em;
+    border: 2px solid grey;
+    width:100%;
+    max-width:40em;
+    box-sizing:border-box;
+}
+.mblog_folder div {
+    display: table;
+    width:100%;
+}
+.mblog_folder div p {
+    display: table-row;
+    text-align:center;
+    font-weight:bold;
+    background:#ddd;
+    line-height:1.8;
+}
+.mblog_folder p span {
+    display: table-cell;
+    text-align:center;
+    width:50%;
+}
+.mblog_nowrap {
+    white-space: nowrap;
+}
+
+.mblog_cat {
+    font-style: italic;
+}
+.mblog_date {
+    font-weight: bold;
+}
+.mblog_headword {
+    margin-left:1em;
+}
+.mblog_title {
+    margin:0;
+    padding:0;
+}
+.mblog_title a {
+    text-decoration:none;
+    color:#579;
+}
+.mblog_title a:hover,
+.mblog_teaser a:hover {
+    background:#ffd;
+    color:#d00;
+}
+
+.mblog_on {
+    background:#dff;
+    border-style: inset ;
+}
+.mblog_teaser span a {
+    text-decoration:none;
+    font-style: italic;
+    font-weight:bold;
+    white-space: nowrap;
+}
+.mblog_item img {
+    float:left;
+    margin:4px 1em 0 0;
+    max-width:100%;
+    height:auto;
+}
+.mblog_archive {
+    display:none;
+    margin:.5em 0;
+}
+
+.mblog_backlink {
+    display:inline-block;
+    margin:0 0 1.5em;
+}
+.mblog_backlinkBottom {
+    display:inline-block;
+    margin:1em 0 0;
+    float:right;
+}
+#mblog_posting {
+    margin:0 0 1em;
+}
+#mblog_posting p {
+    margin:1em 0 0;
+}
+#mblog_posting input[type="text"] {
+    box-sizing:border-box;
+    padding:2px .2em;
+}
+
+#mblog_posting .mblog_input,
+.mblog_input {
+    box-sizing:border-box;
+    width:12em;
+    font-size:inherit;
+}
+#mblog_posting .mblog_titleInput {
+    box-sizing:border-box;
+    width:100%;
+    font-size:200%;
+}
+#editMblogHeader, #viewMblogHeader {
+    margin-top:1em;
+}
+.mblog_headEditStart {
+    margin:0;
+    padding-left:.3em;
+    background:#666;
+    color:white;
+}
+#mblogPublStatus {
+    font-weight:bold;
+}
+.mblogPublOn {
+    color:#dfd;
+}
+.mblogPublOff {
+    color:#fdd;
+}
+.mblog_error {
+    color:#900;
+    background:white;
+    padding:0 .5em;
+    display:block;
+}
+.mblog_ok {
+    color:#090;
+    background:white;
+    padding:0 .5em;
+}
+#mblogPublStatus:before {
+    content:"(";
+}
+#mblogPublStatus:after {
+    content:")";
+}
+.mblog_commentcount {
+    text-align:right;
+}
+.mblog_commentcount span {
+    background:#eee;
+    padding:0 1em;
+    color:black;
+}
+.mblog_imgleft img{
+    padding-right:1em;
+    /* width:8em !important;
+    height:auto !important; */
+}
+.mblog_textright {
+    display: table-cell;
+}
+@media screen and (max-width:500px) {
+    .mblog_textright {
+        display:inline;
+    }
+    .mblog_imgleft img{
+    padding-right:0;
+    }
+}
+
+/* the following code is adapted from Opera's Neil Jenkins, from
+http://www.alistapart.com/articles/expanding-text-areas-made-elegant/ */
+.mblog_expandingArea textarea,
+.mblog_expandingArea pre {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    width:100%;
+}
+.mblog_expandingArea {
+    position: relative;
+    border: 1px solid #888;
+    background: #fff;
+}
+.mblog_expandingArea > textarea,
+.mblog_expandingArea > pre {
+    background: transparent;
+    font: normal normal 1em Consolas, monospace;
+    /* Make the text soft-wrap */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.mblog_expandingArea > textarea {
+    box-sizing: border-box;
+}
+.mblog_expandingArea.active > textarea {
+    /* Hide any scrollbars */
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /* Remove WebKit user-resize widget */
+    resize: none;
+}
+.mblog_expandingArea > pre {
+    display: none;
+}
+.mblog_expandingArea.active > pre {
+    display: block;
+    visibility: hidden;
+}

@@ -1,0 +1,65 @@
+Miniblog-XH
+
+0.1 March 2014: Study of concept
+
+0.2 July 2014: Working plugin
+
+0.3 July 2014
+- easier image use, image found in category page will be used,
+  no more necessity, as in 0.2, of css manipulation
+- date and blog ordering can be turned off
+- alternative headings will be used when set
+- more configuration possibilities for teaser and keyword generation
+
+0.4 Feb 2016
+- exchanged mb_substr with utf8_substr as the mb extension seems
+  not to be installed on all php servers.
+- Plugin will not be executed during CMSimple_XH search
+- Added button "all active blogs" with corresponding java script
+- Added config setting for automatic archiving
+  (used to be "on" when an archiving date was entered, but this was maybe not so clear)
+- Added config setting which allows categories via keywords in the headline of hidden category pages
+  without an additional sublevel.
+- Short help overview in plugin main admin
+- Generated teaser text now free of any plugin calls, no {{{ in the teaser
+- Backlinks to blog contents page can be generated
+- Undocumented features (only for demo purposes, may be changed in later versions):
+  - Miniblog can take any page as starting page
+  - Config settings (show archive, category, date, keyword) can be overruled in plugin call
+
+
+0.5 July 2016
+- The start page of the blog doesn't have to be the page above the blog postings. The blog postings can be
+  entered as subpages of another page, which has to be given as first argument in the miniblog plugin call.
+  To make backlinks work in this case, this page has to be entered additionally in the language file.
+- Backlinks can additionally be created below the blog posting.
+- Number of posts shown blog starting page can be put into several numbered page views with a limited amout of posts each. 
+- 2 columns in blog page possible, responsive goes to 1 column below 500px viewport width
+- With the help of cmb's extedit every logged-in member can create, edit and delete his own blog postings in single files. 
+  Members are assigned a private folder for their posts. This mapping (member -> folder) can be edited by the admin.
+- Thus different authors can post articles using the same title.
+- Posts from single files can be mixed with posts from pages.
+- Posts from single files get URL like CMSimple pages 3. level.
+- Admin backend, where postings can be edited, deleted and created.
+- In admin mode links to single file posts are listed in internal pages link list.
+- Posts can be ordert newest first, oldest first, alphabetically and no order.
+- Search function incorporated into standard search of CMSimple.
+- multiple single file blogs per language enabled.
+- multiple categories enabled.
+- Archive can be put on extra page.
+- Routine to make sure the plugin css is added to the core plugin css when testing plugin on localhost in windows.
+- Important language values are retained while updating the language files.
+- Error message if ajax fails.
+- Sorting options newest first, oldest first or alphabetically according to title, keyword, or category.
+- Comments enabled for single file posts.
+- Image browser of filebrowser for single file posts in admin.
+- Position of teaser img can be set in config, and individually per teaser by admin
+- Teasers can be set individually by admin to span 2 columns in 2 column setting
+- Counting and displaying the number of comments made, works with comments_XH and twocents_XH
+- Added defaultconfig.php, thus eliminating error messages while installing the plugins.
+- Comma separated list of users authorised to write posts can be entered in plugin config
+- Enabled commentcount on page based posts
+
+0.5.1 August 2016
+- Bugfix counting twocents comments
+- Added "left" to display options, displaying an image left and the teaser text on the right

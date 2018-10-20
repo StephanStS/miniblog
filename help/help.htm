@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Miniblog_XH</title>
+<style type="text/css">
+body {background: #eee; font: normal normal normal 12pt/1.6 'trebuchet MS',sans-serif}
+.notice {margin-left:3em; font-style:italic; color:#050; font-size:92%;}
+.new {margin:0 0 0 3em;font-size:92%; color:#400}
+code {font-family: consolas, 'courier new', monospace; font-weight:bold; font-size: 90%; color:#900;}
+body div.main {width: 940px; margin: 3em auto; background: #eee; border: 1px solid #aaa; padding: 0;box-shadow: 0em 0em 2em 0em #bbd;border-radius: 4.5em;}
+body div.main div.main2 {width: 760px; margin: 30px auto; background: #fff; border: 2px solid #ccc; padding: 0 56px 3em;border-radius: 3em;}
+p {margin:0 0 1em 0;}
+em, b, strong {font-weight: bold; color:#008;letter-spacing:1px;}
+.red {color:red;font-weight:bold;}
+h2, h3, h4, h5, h6 {font-family: Georgia; color: #099;margin:1.8em 0 .7em;}
+h4 {margin-bottom:0;}
+h5 {margin:0 0 2em;}
+h1 {font: normal normal 30pt Georgia, 'Times new roman', serif;margin:1em 0 0;color: #068; }
+.indent {margin-left:5em;opacity:.8;}
+</style>
+
+
+</head>
+<body>
+<div class="main">
+<div class="main2">
+<h1>Miniblog 0.5</h1>
+<h5>For CMSimple_XH 1.6.2 or higher</h5>
+
+<p>Miniblog can use normal CMSimple_XH pages and also single files as blog posts. Both methods can be mixed. Multiple blogs per site are possible.
+Posts of page based blogs have to be created by the webmaster, posts of single file blogs can also be created by other users after log-in via Register_XH or Memberpages.</p>
+<p>With blog features turned off, Miniblog can also be used as table of contents for sub-pages.</p>
+
+<h3>Plugin call</h3>
+<p>Usually you would need only to call <code>{{{miniblog}}}</code>.<br>
+The following options are only needed for running more multiple different Miniblogs on a site.</p>
+<p><code>{{{miniblog ['different_startpage', 'sorting', 'category'_buttons', 'archive_link',
+    'limit_posts', 'columns', 'show_categories', 'show_date', 'show_keyword'] }}}</code></p>
+<p>Arguments in [] optional. Arguments are needed only to create different types of blogs on the same site. Normally setting will be done via plugin config.</p>
+<ol>
+ <li><b>different_startpage:</b> usually empty, however if page based posts aren't subpages of the blog page but of another page, enter that page name here.</li>
+ <li><b>sorting:</b> 'alphabet', 'newest', 'title', 'keyword', 'category' or 0 for no sorting</li>
+ <li><b>category_buttons;</b> enter 0 for off, or enter 1 for on, or enter <code>''</code> to follow config setting</li>
+ <li><b>archive_link;</b> as above, enter 0 or 1 for on or off,  or <code>''</code> to follows config setting</li>
+ <li><b>limit_posts;</b> This setting limits the number of posts displayed on the blog page. If there are more posts, additional blog pages are generated. Enter a number, or enter 0 for off, or enter <code>''</code> to follow config setting. </li>
+ <li><b>columns;</b> as above, 0 or 1 for on or off, or <code>''</code> to follow config setting</li>
+ <li><b>show_categories;</b> as above, 0 or 1 for on or off, or <code>''</code> to follow config setting</li>
+ <li><b>show_date;</b> as above, 0  0 or 1 for on or off, <code>''</code> follows config setting</li>
+ <li><b>show_keyword;</b> mostly used for author's name, 0 or 1 for on or off, <code>''</code> to follow config setting</li>
+</ol>
+<p>Example:<br>
+<code>{{{miniblog '','alphabet',0,0,'',1,0,0}}}</code> alphabetical sorting, no category buttons, no archive link, number of posts on the blog page as in config, 2 columns, categories and dates not shown.
+</p>
+
+
+<h3>New in 0.5</h3>
+<ul>
+ <li>Single file based posts</li>
+ <li>Comments</li>
+ <li>Multiple blogs.</li>
+ <li>Multiple categories.</li>
+ <li>Archive on extra page.</li>
+ <li>Posts with URL like 3rd level pages, URL doesn't change when post gets moved to the archive.</li>
+ <li>Searchable via standard CMSimple search.</li>
+ <li>Internal links to single file posts in admin mode selectable just like normal CMSimple pages.</li>
+ <li>External users can write blog posts after log-in.</li>
+ <li>Teaser in 2 columns.</li>
+ <li>The number of teasers on the blog page can be limited. The blog page will be divided into multiple subpages each with the stated limit of teasers.</li>
+ <li>Teasers can be sorted newest first, oldest first, title, keyword (=author's name), category and no sorting.</li>
+ <li>Positioning of teaser images can be set in config.</li>
+ <li>The image browser for teaser images in admin mode.</li>
+ <li>Backlinks also at the end of a blog post.</li>
+ <li>Page based post don't have to be subpages of blog page</li>
+ </ul>
+ <p><b>Updating:</b> Unzip package. This contains additional code for the filebrowser, therefore install package as it is in the base folder. Then go to Miniblog plugin backend. This triggers the reading of the old
+ config and generation of a new one. <br>From Miniblog version 0.4 there may remain 2 files:
+<code>css/0.4_default.css</code> and
+<code>css/0-4_default.css</code>.
+They are not used and should be deleted.</p>
+
+<h2>Blog from single files</h2>
+
+<p><b>Plugin call for blog page:</b> <code>{{{miniblog}}}</code><br>
+ <b>Plugin call for writing blogs by logged-in users:</b> <code>{{{miniblogwriter}}}</code></p>
+
+<p>Single html files are created either by logged-in users with <b>Christoph Becker's Extedit_XH</b> or by the admin in the plugin backend. Next to these html files there is a small json database where category, publishing date, keyword, title, teaser, teaser image link are stored. From this databank the blog page is generated.</p>
+
+<p><b>Images</b> can be added to the teasers of the blog page to make the teasers more attractive.
+To enable external logged-in authors to use teaser images, you need to specify in the config a subfolder of the standard images folder, as folder for teaser images. External authors can select images only from that folder. If you write posts as admin however, you have the standard image browser of CMSimple_XH at your disposal (works in Tinymce and CKeditor, but not yet in Tinymce4) and you are not restricted to one folder. Moreover, you can also choose the position of the image. If you have set the blog page in 2 columns, it is possible to select that a teaser to an important post should span
+over both columns, which can serve as an eye catcher, especially if
+used together with a rather wide image that reaches over both columns.</p>
+
+<p>Each post gets an URL similar to a 3rd level CMSimple page: <br>
+<code>www.basedomain.xx/?blogname/foldername/postname</code>.
+<br>The blogname can be any name except existing page names of the 1st level.
+Different users get different folders for saving their
+posts. When a user logs in for the first time,
+he will be asked to choose a name for his folder. This name will be
+mapped as folder belonging to the user. This mapping can be edited by the admin in the backend.
+All posts of the user will have the user's full name as stored in Memberpages or Register_XH as keyword.
+Thus the keyword is used as author's name.</p>
+
+<p>Standard CMSimple functions like plugin calls and image placement work as usual,
+however Extedit_XH is relatively restricting towards users.
+There are no such restrictions for composing post as admin from the backend.</p>
+
+<h2>Archive <small>for both types of blogs</small></h2>
+<p>The archive is activated by entering an archiving date. For single file posts the archive mapping has to be updated additionally. It is possible to have a special archive page for single file posts. Create the page, write <code>{{{miniblog}}}</code> into the content and enter the page name into the language file. The "archive" button on the blog page will now function as link to the archive page. Archived posts will get a backlink to the archive. Older page based posts  however will not be included in that archive and will simply continue to be displayed as normal posts on the blog post page.</p>
+
+<p>If one of the 2 blog functions (single files/CMSimple pages) is not used, this function can be switched off in the backend.</p>
+
+
+<h2>Blog from CMSimple pages</h2>
+
+<p>Only when your blog posts are not subpages of the blog page but subpages of another page, that other page name must be entered as 1st argument in the plugin call. If you want backlinks, that page name has to be entered also in the language file at <code>page-posts backlinks from</code>.</p>
+
+<p><b>Date:</b><br>Use Pagedata > Page > Publication Period (1st field).
+If a <b>Publication date</b> has been entered in the page data,
+this date will serve as blog publication date, otherwise the date of the last edit will be taken.
+If the publication date has not yet been reached, the page will not be listed.
+If automatic archiving is set and the date is older than the <b>archiving date</b>,
+the page will be listed in the blog archive.
+Note: If a date for "expires" has been entered <u>into the page data of a page</u>
+and this date is past, the page cannot be reached by link any more and will not be listed by miniblog,
+not even in the archive.</p>
+
+<p><b>Keyword:</b>
+<br>Use Pagedata > Meta-Tags > Keywords<br>The <b>Keyword</b> is taken form the page data meta tag <code>Keywords</code>.
+If that is empty, the keyword (i.e. blog author's name) will be taken
+from the first h4, h5, or h6 headline, or first bold or italic text or will be left
+empty as specified in the plugin config.</p>
+
+<p><b>Teaser Text:</b><br>Use Pagedata > Meta-Tags > Description<br>The teaser is taken from the pagedata meta tag <code>Description</code>.
+Is that empty, the teaser text will be taken, depending on the config setting,
+either from the beginning of the text after the headline or from the beginning
+of the first <code>&lt;p></code> paragraph, with teaser character length being set in plugin config..</p>
+<p><b>Categories:</b></p>
+<div style='float:left;margin:0 4em 2em 0;'>Via Subpages,<br>
+Post on 3rd level pages</p>
+<p><code style='margin:0;white-space:pre;'>|<br>Blog Table of Contents<br>    |<br>    |__Category 1<br>    |     |<br>    |     |__Blog1<br>    |     |<br>    |     |__Blog2<br>    |     |<br>    |     |__Blog3<br>    |<br>    |__Category 2<br>          |<br>          |__Blog4</code></div><div style='float:left;margin:0 0 4em 0;'>Via Keyphrase, e.g. \"Cat_\", <br>in the  beginning of a page name</p><p><code style='margin:0;white-space:pre;'>|<br>Blog Table of Contents<br>    |<br>    |__Cat_Category 1<br>    |<br>    |__Blog1<br>    |<br>    |__Blog2<br>    |<br>    |__Blog3<br>    |<br>    |__Cat_Category 2<br>    |<br>    |__Blog4</code></div>
+
+
+<p style="clear:both;">Miniblog usually gives every post a category. For page based posts, categories are provided by intermediate pages, either on an intermediate level or from pages whose name start with a key phrase. Usually you want to <b>hide these
+pages so that they don't appear in the menu.</b> You can as well hide all blog pages, if you don't want them to appear in the page menu.</p>
+<p><b>Posts without category</b> are also possible. For the Keyphrase type category this are pages that don't have a preceding category page, for the normal 3 level arrangement this ar pages that are on the same level as the category pages <u>and contain text</u>.</p>
+<p><b>Teaser images:</b> If you place an image in a category page, that image will appear in the teasers of all posts belonging to that category.</p>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Miniblog_XH</title>
+<style type="text/css">
+body {background: #eee; font: normal normal normal 12pt/1.6 'trebuchet MS',sans-serif}
+.notice {margin-left:3em; font-style:italic; color:#050; font-size:92%;}
+.new {margin:0 0 0 3em;font-size:92%; color:#400}
+code {font-family: consolas, 'courier new', monospace; font-weight:bold; font-size: 90%; color:#900;}
+body div.main {width: 940px; margin: 3em auto; background: #eee; border: 1px solid #aaa; padding: 0;box-shadow: 0em 0em 2em 0em #bbd;border-radius: 4.5em;}
+body div.main div.main2 {width: 760px; margin: 30px auto; background: #fff; border: 2px solid #ccc; padding: 0 56px 3em;border-radius: 3em;}
+p {margin:0 0 1em 0;}
+em, b, strong {font-weight: bold; color:#008;letter-spacing:1px;}
+.red {color:red;font-weight:bold;}
+h2, h3, h4, h5, h6 {font-family: Georgia; color: #099;margin:1.8em 0 .7em;}
+h4 {margin-bottom:0;}
+h5 {margin:0 0 2em;}
+h1 {font: normal normal 30pt Georgia, 'Times new roman', serif;margin:1em 0 0;color: #068; }
+.indent {margin-left:5em;opacity:.8;}
+</style>
+
+
+</head>
+<body>
+<div class="main">
+<div class="main2">
+<h1>Miniblog 0.5</h1>
+<h5>Für CMSimple_XH ab Version 1.6.2</h5>
+
+
+<p>Miniblog erzeugt Blogs mit Beiträgen aus normalen Seiten der content.htm
+oder aus einzelnen externen HTML-Dateien oder einer Mischung von beidem.</p>
+
+<p>Beliebig viele Blogs innerhalb einer Website möglich.
+Blogbeiträge aus normalen Seiten (=seitenbasierte Beiträge) kann nur der
+Webmaster schreiben, einzeldatei-basierte Beträge hingegen können nach Login (via Memberpages/Register_XH) auch von anderen Nutzern verfasst werden.</p>
+<p>Miniblog kann durch seine Fähigkeit, die normale CMSimple-Seitenstruktur zu nutzen, auch als Inhaltsverzeichnis für Unterseiten verwendet werden, wenn man blog-typische Funktionen abschaltet.</p>
+
+<h3>Pluginaufruf</h3>
+<p>Normalerweise reicht der Aufruf <code>{{{miniblog}}}</code>.
+<br>Wenn man jedoch mehrere Miniblogs mit verschiedenen Funktionen innerhalb einer Website nebeneinander betreiben will, kann man
+diese per Pluginaufruf individuell konfigurieren.</p>
+<p><code>{{{miniblog ['Oberseite', 'Sortierung', 'Kategoriebuttons', 'Archivlink',
+    'Anzahlbegrenzung', 'Spalten', 'Zeige_Kategorie', 'Zeige_Datum', 'Zeige_Keyword'] }}}</code></p>
+<p>Angaben in [] optional.</p>
+<ol>
+ <li><b>Oberseite:</b> Normalerweise leer, wenn seitenbasierte Beiträge nicht unter der Blogseite stehen, hier Namen der zugehörenden Oberseite eingeben.</li>
+ <li><b>Sortierung:</b> 'newest', 'oldest', 'title', 'keyword', 'category' oder 0 für keine Sortierung. Bei Beiträgen externer Nutzer wird automatisch der Autorenname in die Variable 'keyword' geschreiben.</li>
+ <li><b>Kategoriebuttons:</b> 0 oder 1 für an oder aus, bei <code>''</code> gilt Konfigwert</li>
+ <li><b>Archivlink:</b> 0 oder 1 für an oder aus, bei <code>''</code> gilt Konfigwert</li>
+ <li><b>Anzahlbegrenzung:</b> Begrenzt die Anzahl der Teaser auf der Blogseite.
+ Wenn es mehr Teaser gibt, werden Folgeblogseiten erzeugt.
+ Hier eine Zahl für die maximale Teaseranzahl pro Seite eingeben oder eine 0 für ausgeschaltet. Bei
+ Eingabe von <code>''</code> gilt der Konfigwert. </li>
+ <li><b>Spalten:</b> 0 oder 1 für an oder aus, bei <code>''</code> gilt Konfigwert</li>
+ <li><b>Zeige_Kategorie:</b> 0 oder 1 für an oder aus, bei <code>''</code> gilt Konfigwert</li>
+ <li><b>Zeige_Datum:</b> 0 oder 1 für an oder aus, bei <code>''</code> gilt Konfigwert</li>
+ <li><b>Zeige_Keyword:</b> meist für Autorennamen genutzt, 0 oder 1 für an oder aus, bei <code>''</code> gilt Konfigwert</li>
+</ol>
+<p>Beispiel:<br>
+<code>{{{miniblog '','alphabet',0,0,'',1,0,0}}}</code> alphabetische Sortierung, keine Kategoriebuttons und kein Archivlink, Höchstanzahl der angezeigten Beiträge wie in Konfig, zweispaltige Ausgabe ohne Kategorien und Datumsanzeige.
+</p>
+
+
+<h3>Neu in 0.5</h3>
+<ul>
+ <li>Einzeldatei-basierte Blogbeiträge.</li>
+ <li>Multiblog-fähig.</li>
+ <li>Kommentarfunktion einschaltbar mit Angabe der Kommentaranzahl pro Beitrag.</li>
+ <li>Multikategorie-fähig.</li>
+ <li>Archiv auf eigener Archiv-Seite möglich.</li>
+ <li>Einzeldatei-Blogs mit URL wie normale Seiten. URL ändert sich nicht, wenn Beitrag ins Archiv kommt.</li>
+ <li>Mit Standard-Suchfunktion durchsuchbar.</li>
+ <li>Links zu Blogbeiträgen im Bearbeitungsmodus auswählbar wie zu normalen CMSimple-Seiten.</li>
+ <li>Externe Nutzer können Blogbeiträge via Memberpages/Register_XH verfassen.</li>
+ <li>Responsive zweispaltige Teaser.</li>
+ <li>Position des Teaserbildes konfigurierbar.</li>
+ <li>Image Browser für Teaserbilder im Admin-Modus.</li>
+ <li>Anzahl der Teaser auf der Blogseite kann begrenzt werden. Die Blogseite wird dann in mehrere Folgeseiten aufgeteilt.</li>
+ <li>Anordnung Neuestes zuerst, Ältestes zuerst,
+ nach Titel, Keyword (=Autorennamen), Kategorien oder keine besondere Anordnung.</li>
+ <li>Backlinks auch am Ende der Beiträge möglich.</li>
+ <li>Seiten-basierte Beiträge brauchen keine Unterseiten der Blogseite mehr zu sein.</li>
+ </ul>
+ <p><b>Updaten:</b> Zip entpacken, das Verzeichnis enthält auch Code für die Nutzung des Filebrowsers aus Miniblogf heraus. Daher das Paket so wie es ist in den Basisordner der Website kopieren. Die alte Miniblog-Version wird dann mit der neuen überschreiben. Nun zum Plugin-Backend wechseln.
+Das Plugin liest dann die alte Konfig aus und generiert eine neue.
+<br>
+Aus Version 0.4 finden sich eventuell noch 2 alte Dateien:
+<code>css/0.4_default.css</code> und
+<code>css/0-4_default.css</code>.
+Diese werden nicht mehr genutzt und sollten gelöscht werden.</p>
+
+<h2>Blog mit Beiträgen aus Einzeldateien</h2>
+
+<p>Hier werden einzelne HTML-Dateien entweder durch eingeloggte Mitglieder mithilfe von <b>Christoph Beckers Plugin Extedit_XH</b> erstellt oder vom Admin im Plugin-Backend. Zu diesen Dateien gibt es jeweils einen Artikelkopf mit Kategorie, Veröffentlichungsdatum, Schlagwort bzw. Autorennamen, Titel, Teaser und Teaserbild, der in einer kleinen Json-Datenbank gespeichert wird. Aus dieser Datenbank wird automatisch die Blogstartseite mit Links zu den einzelnen HTML-Blogbeiträgen generiert. </p>
+
+<p>Auch <b>Bilder</b> können in die Teaser eingefügt werden.
+Um eingeloggten externen Autoren diese Bildernutzung zu ermöglichen, muss man einen Ordner dafür in der Konfig angeben.
+Die Externen können dann Bilder aus diesem Ordner auswählen. Wenn man als Admin Beiträge
+verfasst, hat man den Standard-CMSimple_XH-Bild-Browser zur Verfügung und ist nicht mehr auf einen Ordner begrenzt (funktioniert mit Tinymce und CKeditor, zurzeit jedoch noch nicht mit Tinymce4).
+Hat man die Teaser in 2 Spalten angeordnet (Konfigeinstellung), kann man für einzelne Teaser auch einstellen, dass sie über beide Spalten laufen, z.B. um eine Art Blickpunkt in der Teaserliste zu schaffen.</p>
+
+
+<p>Die Blogbeiträge haben eine URL wie normale Seiten der 3. Ebene:
+<code>www.Basisdomain.xx/?Blogname/Ordnername/Beitragsname</code>. Der Blogname ist frei wählbar, er darf nur nicht mit einem bestehenden Namen einer Seite der 1. Ebene übereinstimmen. Die Beiträge selbst sind nach Ordnername und Betragskurzname gekennzeichnet. Verschiedene Ordner werden dabei verschiedenen Mitgliedern zugeordnet. Beim ersten Erstellen eines Beitrags werden Mitglieder aufgefordert sich einen passenden Ordnernamen für ihre Beiträge auszudenken. Dieser Ordner ist dann dauerhaft mit dem Mitglied verbunden. Wenn der Admin Beiträge erstellt, kann er allerdings beliebige Ordnernamen verwenden. Die Zuordnung von Ordnernamen zu Mitgliedern kann im Backend editiert werden. Der volle Name des Autors, so wie dieser bei Memberpages oder Register_XH gespeichert ist, wird automatisch als Keyword des Beitrags gespeichert.</p>
+
+<p>Die üblichen CMSimple-Funktionen wie Plugins und Bilder funktionieren auf den Blogseiten,
+werden allerdings durch Extedit_XH für Mitglieder stark beschränkt.
+Wenn man die Einzeldateifunktion als Admin nutzt, unterliegt man keinen Beschränkungen.
+Die Bedienung ist ansonsten selbsterklärend. Falls eine der beiden Blogfunktionsweisen
+(Einzeldatei-besierte Blogbeiträge/seitenbasierte Blog-Beiträge) nicht genutzt wird, kann man diese zur Resourcenschonung im Backend abstellen.</p>
+
+<h2>Für beide Blogtypen </h2>
+<h3>Archiv</h3> <p>Um ein Archiv zu erstellen, ein Datum dafür in der Konfig eingeben. Für die Einzeldateibeiträge muss man anschließend die Archivzuordnung updaten. Danach werden Beiträge, die älter als das gewählte Archivierungsdatum sind, versteckt und erst gezeigt, wenn auf den Button "Archiv" geklickt wird. Bei Einzeldateien kann man das Archiv auch auf einer eigenen Seite zeigen. Dazu eine Seite erstellen, dort {{{miniblog}}} hineinschreiben, und den Seitennamen  (z.B. "Archiv") in der Sprachdatei eintragen. Anschließend im Backend wieder die Archivzuordnung aktualisieren. Danach fungiert der Button "Archiv" auf der Blogseite als Link zur Archivseite.</p>
+
+<p>Blogbeiträge aus Seiten werden bei einer eigenen Archivseite allerdings nicht berücksichtigt. Um zu vermeiden, dass sie gar nicht mehr gezeigt werden, werden sie beim Vorhandensein einer eigenen Archivseite – auch wenn sie älter als das Archivierungsdatum sind – weiterhin auf der Blogseite aufgelistet.</p>
+
+<h3>Angabe der Kommentaranzahl zu einem Beitrag</h3>
+<p>Wenn man ein Kommentarplugin wie Twocents_XH oder Comments_XH bei einzeldateibasierten Beiträgen nutzt, wird die Anzahl der Kommentare auf der Blogseite automatisch angezeigt. </p>
+<p>Bei seitenbasierten Beiträgen muss man das Kommentarplugin extra
+unten auf der Seite installieren, z.B. <code>{{{twocents 'passendkodierterSeitenname'}}}</code>. Es kommt darauf an, den Seitennamen auf passend kodierte Art einzugeben, denn nur alphanumerische Zeichen, <code>-</code> und <code>_</code> werden so wie sie sind akzeptiert. Wenn noch andere Zeichen im Seitennamen vorkommen, müssen diese entsprechend den Einstellungen, die man in CMSimple getätigt hat, verändert werden. Normalerweise wird statt dem Leerzeichen ein Bindestrich genommen und in deutschsprachigen Seiten werden Ö Ä Ü ö ä ü ß zu Oe Ae Ue oe ae ue ss. Andere Zeichen werden URL-encodiert, was allerdings in manchen Browsern in der Anzeige wieder zurückkodiert wird, so dass einem dann die Anzeige in der Adressliste nicht weiter hilft. Hier kann man über einen online URL Decoder/Encoder den passenden Code finden.</p>
+
+
+<h2>Blog mit seitenbasierten Beiträgen</h2>
+
+<p>Normalerweise auch hier nur <code>{{{miniblog}}}</code> aufrufen.
+Liegen aber die Seiten der Blogbeiträge nicht unterhalb der eigentlichen Blogseite, dann muss man die entsprechende Seite Oberseite als 1. Argument im Pluginaufruf eintragen, <code>{{{miniblog ['Oberseite der Blogbeiträge' , etc. ] }}}</code>. So weiß das Plugin, wo es die Beiträge zu suchen hat. Für Backlinks muss in der Sprachdatei immer die eigentliche Blogseite eingetragen werden. Falls die Beiträge aber unterhalb einer anderen Seite stehen, muss man diese Seite ebenfalls in dem entsprechenden Feld der Sprachdatei eingeben.</p>
+<p><b>Blog-Datum:</b><br>Hier nimmt Miniblog das Datum, das es
+in Pagedata > Seite > Veröffentlichungszeitraum (1. Feld) findet<br>
+Wenn das Feld leer ist, wird das Bearbeitungsdatum genommen.</p>
+<p><b>Schlüsselwort(e):</b><br>Zuerst schaut Miniblog in Pagedata > Meta > Keywords<br>Wenn leer, wird Text je nach
+Konfig.-Einstellung aus einer ersten h6, h5, h4 Überschrift oder dem ersten fetten oder kursiven Textstelle
+genommen oder leer gelassen.</p>
+<p><b>Teaser-Text:</b><br>Die erste Quelle ist Pagedata > Meta > Description<br>Wenn leer, wird je
+nach Konfig.-Einstellung Text vom Anfang des ersten
+<code>&lt;p></code>-Absatzes oder vom dem was der Überschrift folgt genommen.</p>
+<p><b>Kategorien:</b></p>
+<div style='float:left;margin:0 4em 2em 0;'>Unterseiten = Kategoriennamen<br>bei Blogs in Unterunterseiten<br>
+<br><code style='margin:0;white-space:pre;'>|<br>Blog-Inhaltsverzeichnis<br>    |<br>    |__Kategorie 1<br>    |     |<br>    |     |__Blog1<br>    |     |<br>    |     |__Blog2<br>    |     |<br>    |     |__Blog3<br>    |<br>    |__Kategorie 2<br>          |<br>          |__Blog4</code>
+</div>
+<div style='float:left;margin:0 0 4em 0;'>über ausgewählte Zeichenfolgen, z.B. <code>Cat_</code> <br>am Anfang von Überschriften versteckter Seiten<br><br><code style='margin:0;white-space:pre;'>|<br>Blog-Inhaltsverzeichnis<br>    |<br>    |__Cat_Kategorie 1<br>    |<br>    |__Blog1<br>    |<br>    |__Blog2<br>    |<br>    |__Blog3<br>    |<br>    |__Cat_Kategorie 2<br>    |<br>    |__Blog4</code></div>
+
+<p style="clear:both"><b>Kategorien:</b> Miniblog-Blogeinträge haben normalerweise
+eine Kategorie, entweder die Ebene über den eigentlichen Blogeinträgen oder Seiten mit Schlüsselwort.
+Die Kategorieseiten haben selbst keinen Text. Man versteckt sie am besten, damit sie nicht im Menü erscheinen.
+Man kann zusätzlich noch alle Blogseiten verstecken, wenn man nicht möchte, dass sie im Seitenmenü erscheinen. </p>
+<p><b>Teaser-Bilder:</b> Ein Bild in den Kategorieseiten erscheint in der Blogübersicht am Anfang aller Teaser die zu der jeweiligen Kategorie gehören.</p>
+
+<p><b>Blogeinträge ohne Kategorie sind auch möglich:</b> Bei Nutzung der Unterseitenmethode sind das Einträge mit Text auf der Kategorie-Ebene. Bei Nutzung der Schlüsselwortmethode
+sind es Seiten, über denen keine Seite mit Schlüsselwort steht.</p>
+<p><b>Datum:</b> Ist das Veröffentlichungsdatum noch nicht erreicht, wird der Blogeintrag nicht gelistet</p>
+<p><b>Archiv:</b> Ist automatische Archivierung eingestellt und wird das <b>Archivierungsdatum</b> unterschritten, wird der
+ Blogeintrag nur im Blog-Archiv gelistet</p>
+ <p><b>Ablaufdatum:</b> Ist bei einem Blogeintrag im <u>Pagedata</u>-Veröffentlichungszeitraum ein Ablaufdatum eingetragen, Kann
+diese Seite nach Ablauf des Datums nicht mehr per Link erreicht werden und wird dann von Miniblog überhaupt nicht mehr
+gelistet.</p>
+
+
+
+
