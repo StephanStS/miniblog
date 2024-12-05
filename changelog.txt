@@ -63,3 +63,6 @@ Miniblog-XH
 0.5.1 August 2016
 - Bugfix counting twocents comments
 - Added "left" to display options, displaying an image left and the teaser text on the right
+
+0.5.2 December 2024
+- Changed version.nfo to work with moved directory from svasti.de to https://github.com/cmsimple-xh/miniblog
